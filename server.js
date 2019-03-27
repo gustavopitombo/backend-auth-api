@@ -1,12 +1,14 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+const buildRoutes = require('./app/infrastructure/routes');
 
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.get('/', (req, res) => {
-  res.send('Hello world');
-});
+app.use(bodyParser.json());
+
+buildRoutes(app);
 
 app.listen(port, () => {
-  console.log('Express is listening to http://localhost:3000');
+  console.log(`App is running at http://localhost:${port}`);
 });
