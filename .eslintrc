@@ -1,0 +1,26 @@
+{
+  "env": {
+    "es6": true,
+    "jest": true,
+    "node": true
+  },
+  "extends": [
+    "airbnb-base"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2017
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": [
+          "src",
+          "test"
+        ]
+      }
+    }
+  },
+  "rules": {
+    "class-methods-use-this": "off"
+  }
+}

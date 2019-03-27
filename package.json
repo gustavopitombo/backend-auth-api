@@ -1,0 +1,28 @@
+{
+  "name": "backend-auth-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gustavopitombo/backend-auth-api.git"
+  },
+  "author": "Gustavo Pitombo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gustavopitombo/backend-auth-api/issues"
+  },
+  "homepage": "https://github.com/gustavopitombo/backend-auth-api#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "eslint": "^5.15.3",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0"
+  }
+}
