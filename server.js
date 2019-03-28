@@ -1,14 +1,32 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const config = require('./app/config');
 const buildRoutes = require('./app/infrastructure/routes');
+const mongodb = require('./app/common/lib/mongodb');
 
-const app = express();
-const port = process.env.PORT || 3000;
+const initApp = async () => {
+  const app = express();
+  const port = process.env.PORT || 3000;
 
-app.use(bodyParser.json());
+  app.use(bodyParser.json());
 
-buildRoutes(app);
+  try {
+    const mongoConnect = await mongodb.connect(config.mongo.uri, config.mongo.base);
 
-app.listen(port, () => {
-  console.log(`App is running at http://localhost:${port}`);
-});
+    if (!mongoConnect) {
+      throw new Error('Mongo failed to connect');
+    }
+
+    console.warn('mongoConnect', mongoConnect);
+  } catch (error) {
+    console.log(`App failed ${error.message}`);
+  }
+
+  buildRoutes(app);
+
+  app.listen(port, () => {
+    console.log(`App is running at http://localhost:${port}`);
+  });
+};
+
+initApp();
