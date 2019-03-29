@@ -4,14 +4,20 @@ class UserRepository {
     this.db = database;
   }
 
-  findBydId(userId) {
-    return this.db.collection(this.collection).findOne({ userId });
+  find(filter) {
+    return this.db.collection(this.collection).findOne(filter);
   }
 
   insert(user) {
     return this.db.collection(this.collection)
       .insertOne(user)
       .then(result => result.ops[0]);
+  }
+
+  update({ _id, loggedAt }) {
+    return this.db.collection(this.collection)
+      .updateOne({ _id }, { $set: { loggedAt } })
+      .then(result => result);
   }
 }
 

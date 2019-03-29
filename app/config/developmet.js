@@ -1,4 +1,8 @@
 const config = {
+  app: {
+    salt: 10,
+    secret: 'secret',
+  },
   mongo: {
     uri: process.env.MONGODB_URI || 'mongodb://localhost:27017/heroku_q5g0hthp',
     base: process.env.MONGODB_BASE || 'heroku_q5g0hthp',

@@ -1,7 +1,5 @@
-const { BaseHandler } = require('../../../common');
+const { Handler } = require('../../../common');
 
-class LoginHandler extends BaseHandler {
-
-}
+class LoginHandler extends Handler { }
 
 module.exports = LoginHandler;

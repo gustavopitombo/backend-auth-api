@@ -20,6 +20,8 @@ const initApp = async () => {
     console.warn('mongoConnect', mongoConnect);
   } catch (error) {
     console.log(`App failed ${error.message}`);
+
+    return;
   }
 
   buildRoutes(app);

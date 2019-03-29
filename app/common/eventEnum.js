@@ -1,4 +1,7 @@
 module.exports = {
-  success: 'success',
+  authorizationError: 'authorizationError',
   error: 'error',
+  success: 'success',
+  validationFailed: 'validationFailed',
+  invalidSession: 'invalidSession',
 };

@@ -1,11 +1,15 @@
-const LoginCommand = require('../../../domain/command/auth/login-command');
+const { Collections } = require('../../../common');
 const mongodb = require('../../../common/lib/mongodb');
 const UserRepository = require('../../repository/user');
-const { Collections } = require('../../../common');
+const LoginCommand = require('../../../domain/command/auth/login-command');
+const User = require('../../../domain/entities/user');
+
+const userEntity = new User();
+const userRepository = new UserRepository(mongodb, Collections.user);
 
 class LoginFactory {
   create() {
-    return new LoginCommand(new UserRepository(mongodb, Collections.user));
+    return new LoginCommand(userRepository, userEntity);
   }
 }
 
